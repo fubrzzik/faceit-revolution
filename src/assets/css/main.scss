@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+// colors
+
+$primary-100: #ff5500;
+$primary-200: #ff6c29;
+$primary-300: #ff8045;
+$primary-400: #ff935f;
+$primary-500: #ffa679;
+$primary-600: #ffb893;
+
+$surface-100: #161616;
+$surface-200: #2b2b2b;
+$surface-300: #424242;
+$surface-400: #5a5a5a;
+$surface-500: #737373;
+$surface-600: #8d8d8d;
+
+$surface-mixed-100: #2b1d17;
+$surface-mixed-200: #40322c;
+$surface-mixed-300: #554843;
+$surface-mixed-400: #6b605b;
+$surface-mixed-500: #837874;
+$surface-mixed-600: #9a928e;
+
+$text: #fff;
+
+// breakpoints
+
+$bp-tablet: 1199px;
+$bp-mobile: 767px;
+$set-mobile: 569px;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $surface-100;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.content {
+    margin-top: 64px;
+    padding: 100px 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    height: auto;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+}
+
+@media (max-width: $bp-tablet) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (max-width: $bp-mobile) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (max-width: $set-mobile) {
+    .content {
+        margin-top: 71px;
+        padding: 60px 0;
+    }
+}

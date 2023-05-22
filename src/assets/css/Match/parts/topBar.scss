@@ -1,0 +1,110 @@
+.match {
+    .top_bar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        background: linear-gradient(45deg, $surface-200, transparent, $surface-200);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 25px;
+        overflow: hidden;
+
+        .team {
+            width: calc(50% - 120px - 25px);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 15px;
+
+            img {
+                width: 60px;
+                height: 60px;
+                object-fit: cover;
+                user-select: none;
+            }
+
+            h6 {
+                font-size: 16px;
+                line-height: 1.2;
+                font-weight: 600;
+                color: $text;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
+            &:last-child {
+                flex-direction: row-reverse;
+            }
+        }
+
+        .score {
+            width: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .result, .status {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                line-height: 1;
+                font-weight: bold;
+                color: $text;
+            }
+
+            .result {
+                width: 60px;
+                height: 60px;
+                background-color: $surface-200;
+                font-size: 30px;
+            }
+
+            .status {
+                width: 120px;
+                height: 60px;
+                background-color: $surface-100;
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+@media (max-width: $bp-mobile) {
+    .match {
+        .top_bar {
+            gap: 15px;
+    
+            .team {
+                width: calc(50% - 80px - 15px);
+                gap: 15px;
+    
+                img {
+                    width: 40px;
+                    height: 40px;
+                }
+    
+                h6 {
+                    font-size: 15px;
+                }
+            }
+    
+            .score {
+                width: 160px;
+    
+                .result {
+                    width: 40px;
+                    height: 40px;
+                    font-size: 24px;
+                }
+    
+                .status {
+                    width: 80px;
+                    height: 40px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

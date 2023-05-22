@@ -1,0 +1,212 @@
+.home {
+    width: 100%;
+    height: calc(100vh - 264px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &_box {
+        width: 100%;
+        height: auto;
+        padding: 30px;
+        background: $surface-200;
+        border: 1px solid $surface-300;
+
+        h1, h2 {
+            line-height: 1.2;
+            color: $text;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 50px;
+        }
+
+        form {
+            width: 90%;
+            height: auto;
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            gap: 20px;
+            margin: 0 auto 50px;
+
+            input[type=text] {
+                width: calc(100% - 20px - 120px);
+                height: auto;
+                appearance: none;
+                padding: 10px 20px;
+                background-color: $text;
+                border: 2px solid $surface-200;
+                font-size: 15px;
+                line-height: 1.2;
+                font-weight: 400;
+                color: $surface-100;
+                transition: border .3s ease;
+
+                &:hover, &:focus {
+                    outline: none;
+                    border-color: $primary-100;
+                }
+            }
+
+            button {
+                appearance: none;
+                width: 120px;
+                height: auto;
+                background-color: $primary-100;
+                border: none;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 15px;
+                line-height: 1.2;
+                font-weight: 700;
+                letter-spacing: 0.6px;
+                text-transform: uppercase;
+                color: $text;
+                cursor: pointer;
+                transition: background-color .3s ease;
+
+                &:hover {
+                    background-color: $primary-300;
+                }
+            }
+        }
+
+        .instruction {
+            width: 90%;
+            height: auto;
+            padding: 30px 20px;
+            margin: 0 auto;
+            background-color: $surface-300;
+
+            h3 {
+                font-size: 20px;
+                line-height: 1.2;
+                font-weight: bold;
+                color: $primary-100;
+                margin-bottom: 20px;
+            }
+
+            p {
+                font-size: 15px;
+                line-height: 1.2;
+                font-weight: 400;
+                color: $text;
+
+                &:not(:last-child) {
+                    margin-bottom: 12px;
+                }
+
+                span {
+                    color: $primary-100;
+                    font-weight: bold;
+                }
+
+                &.example {
+                    word-wrap: break-word;
+                }
+
+                a {
+                    font-weight: bold;
+                    color: $text;
+                    text-decoration: none;
+                    transition: color .3s ease;
+
+                    &:hover {
+                        color: $primary-100;
+                    }
+                }
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+                margin: 10px 0;
+                user-select: none;
+            }
+        }
+    }
+}
+
+@media (max-width: $bp-tablet) {
+    .home {
+        &_box {
+            h1 {
+                font-size: 26px;
+            }
+    
+            h2 {
+                font-size: 17px;
+            }
+    
+            form {
+                width: 100%;
+            }
+    
+            .instruction {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: $bp-mobile) {
+    .home {
+        height: auto;
+        display: block;
+    
+        &_box {
+            padding: 30px 20px;
+    
+            h1 {
+                font-size: 24px;
+            }
+    
+            h2 {
+                font-size: 16px;
+            }
+    
+            form {
+                width: 100%;
+                flex-wrap: wrap;
+                gap: 10px;
+    
+                input[type=text] {
+                    width: 100%;
+                }
+    
+                button {
+                    width: 100%;
+                    padding: 10px 20px;
+                    border: 2px solid $surface-200;
+                }
+            }
+    
+            .instruction {
+                width: 100%;
+                padding: 20px;
+    
+                h3 {
+                    font-size: 18px;
+                }
+    
+                p {
+                    font-size: 14px;
+                }
+    
+                img {
+                    margin: 12px 0;
+                }
+            }
+        }
+    }
+}

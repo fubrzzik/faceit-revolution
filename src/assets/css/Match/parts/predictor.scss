@@ -1,0 +1,339 @@
+.match {
+    &_predictor {
+        position: relative;
+        margin-top: 50px;
+        width: 100%;
+        height: auto;
+        padding: 30px 20px;
+        background: $surface-100;
+        border: 1px solid $surface-200;
+        overflow: hidden;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, $primary-100, transparent, $primary-300, transparent, $primary-100);
+            filter: blur(100px);
+            opacity: 0.01;
+            z-index: 1;
+        }
+
+        &_content {
+            position: relative;
+            z-index: 2;
+
+            .heading, .subheading {
+                line-height: 1.2;
+                color: $text;
+                text-align: center;
+            }
+    
+            .heading {
+                font-size: 28px;
+                font-weight: bold;
+                margin-bottom: 15px;
+            }
+    
+            .subheading {
+                font-size: 16px;
+                font-weight: 400;
+            }
+        }
+
+        &_overall {
+            width: 80%;
+            height: auto;
+            margin: 60px auto 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+
+            .team {
+                width: auto;
+                max-width: 200px;
+                height: auto;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 15px;
+
+                img {
+                    width: 40px;
+                    height: 40px;
+                    object-fit: cover;
+                    border-radius: 100%;
+                    user-select: none;
+                }
+
+                h6 {
+                    font-size: 16px;
+                    line-height: 1.2;
+                    font-weight: 500;
+                    color: $text;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+
+                &.team2 {
+                    flex-direction: row-reverse;
+                }
+            }
+
+            .compare-bar {
+                width: 100%;
+                height: 10px;
+                background-color: $surface-300;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .bar {
+                    position: relative;
+                    height: 100%;
+                    background-color: $surface-mixed-200;
+
+                    &.sb {
+                        background-color: $primary-100;
+
+                        &::before {
+                            color: $primary-100;
+                        }
+                    }
+
+                    &::before {
+                        content: attr(data-value)'%';
+                        position: absolute;
+                        top: 0;
+                        font-size: 20px;
+                        line-height: 1.2;
+                        font-weight: bold;
+                        color: $text;
+                        transform: translateY(-160%);
+                    }
+
+                    &-team1 {
+                        &::before {
+                            left: 0;
+                        }
+                    }
+
+                    &-team2 {
+                        &::before {
+                            right: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        &_segments {
+            margin-top: 60px;
+
+            .segment {
+                width: 100%;
+                height: auto;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 80px;
+
+                &:not(:last-child) {
+                    margin-bottom: 20px;
+                }
+
+                .bar {
+                    position: relative;
+                    width: calc(50% - 140px - 40px);
+                    height: 8px;
+                    background-color: $surface-mixed-200;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+
+                    &::before {
+                        content: attr(data-value)'%';
+                        position: absolute;
+                        top: 50%;
+                        right: -55px;
+                        font-size: 18px;
+                        line-height: 1.2;
+                        font-weight: bold;
+                        color: $text;
+                        transform: translateY(-50%);
+                    }
+
+                    span {
+                        display: block;
+                        height: 100%;
+                        background-color: $surface-500;
+                    }
+
+                    &:last-child {
+                        flex-direction: row-reverse;
+
+                        &::before {
+                            left: -55px;
+                            right: unset;
+                        }
+                    }
+
+                    &.sb {
+                        &::before {
+                            color: $primary-100;
+                        }
+
+                        span {
+                            background-color: $primary-100;
+                        }
+                    }
+                }
+
+                .map {
+                    position: relative;
+                    width: 280px;
+                    height: auto;
+                    padding: 15px 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: $surface-100;
+                        opacity: 0.7;
+                    }
+
+                    span {
+                        font-size: 16px;
+                        line-height: 1.2;
+                        font-weight: 500;
+                        color: $text;
+                        z-index: 1;
+                    }
+
+                    img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        user-select: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $bp-tablet) {
+    .match {
+        &_predictor {
+            &_overall {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: $bp-mobile) {
+    .match {
+        &_predictor {
+            &_content {      
+                .heading {
+                    font-size: 24px;
+                }
+        
+                .subheading {
+                    font-size: 15px;
+                }
+            }
+    
+            &_overall {
+                .team {
+                    max-width: 40px;
+                    gap: 0;
+    
+                    h6 {
+                        display: none;
+                    }
+                }
+    
+                .compare-bar {
+                    height: 8px;
+    
+                    .bar {
+                        &::before {
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+    
+            &_segments {
+                margin-top: 60px;
+    
+                .segment {
+                    flex-wrap: wrap;
+                    gap: 25px 0;
+    
+                    &:not(:last-child) {
+                        margin-bottom: 35px;
+                    }
+    
+                    .bar {
+                        width: calc(50% - 60px);
+    
+                        &::before {
+                            right: unset;
+                            font-size: 16px;
+                        }
+
+                        &:first-child {
+                            order: 2;
+                            border-right: 1px solid $surface-100;
+                            margin-left: 60px;
+
+                            &::before {
+                                left: -60px;
+                            }
+                        }
+    
+                        &:last-child {
+                            order: 3;
+                            border-left: 1px solid $surface-100;
+                            margin-right: 60px;
+    
+                            &::before {
+                                left: unset;
+                                right: -60px;
+                            }
+                        }
+                    }
+    
+                    .map {
+                        order: 1;
+                        width: 100%;
+                        height: auto;
+                        padding: 15px;
+    
+                        span {
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
